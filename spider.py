@@ -195,7 +195,7 @@ class XiangHaRecipe(object):
 			categoryDetail = re.findall(pattern, category_detail_content)
 
 			subs = []
-			sub_detail = {}
+			sub_detail = []
 			for detail in categoryDetail:
 
 				if recipe_type == 'shicai':
