@@ -215,15 +215,18 @@ class XiangHaRecipe(object):
 						'category_sub_title': detail[1].strip()
 					}
 					subs.append(sub)
+			if recipe_type == 'shicai':
+				category['category_meterial'] = sub_detail
+			else:
+				category['category_subs'] = subs
 
-			category['category_subs'] = shicai_sub if recipe_type == 'shicai' else subs
 			category_all_subs.append(category)
 
 		category_all['recipe_type'] = recipe_type
 		category_all['subs'] = category_all_subs
 
-		self.mydb.category_list.insert_one(category_all)
-		# print(category_all)
+		# self.mydb.category_list.insert_one(category_all)
+		print(category_all)
 		# return category_all
 
 	def lunch(self, page):
