@@ -223,7 +223,7 @@ class XiangHaRecipe(object):
 		category_all['subs'] = category_all_subs
 
 		self.mydb.category_list.insert_one(category_all)
-		print(recipe_type)
+		# print(category_all)
 		# return category_all
 
 	def lunch(self, page):
@@ -308,10 +308,10 @@ class XiangHaRecipe(object):
  	# 							self.mydb[category_identifier + '_steps'].insert_one(recipeStep)
  	# 					page = page + 1
 
-		self.recipesCategory('fenlei')
-		self.recipesCategory('caipu')
+		# self.recipesCategory('fenlei')
+		# self.recipesCategory('caipu')
 		self.recipesCategory('shicai')
-		self.recipesCategory('jiankang')
+		# self.recipesCategory('jiankang')
 
 
 	def meals(self):
