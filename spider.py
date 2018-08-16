@@ -222,8 +222,9 @@ class XiangHaRecipe(object):
 		category_all['recipe_type'] = recipe_type
 		category_all['subs'] = category_all_subs
 
-		# self.mydb.category_list.insert_one(category_all)
-		return category_all
+		self.mydb.category_list.insert_one(category_all)
+		print(recipe_type)
+		# return category_all
 
 	def lunch(self, page):
 		url = self.baseURL + 'c-zhongcan' + '/hot-' + str(page)
@@ -282,34 +283,35 @@ class XiangHaRecipe(object):
 			time.sleep(delay)
 
 	def categoryList(self):
-		fenlei = self.recipesCategory('fenlei')['subs']
-		if fenlei is None:
-			pass
-		else:
-			for categorySubs in fenlei:
+		# fenlei = self.recipesCategory('fenlei')['subs']
+		# if fenlei is None:
+		# 	pass
+		# else:
+		# 	for categorySubs in fenlei:
 
-				category_title = categorySubs['category_title']
-				category_url = categorySubs['category_url']
-				category = categorySubs['category_subs']
-				for sub in category:
-					category_sub_href = sub['category_sub_href']
-					category_sub_title = sub['category_sub_title']
-					category_identifier = category_sub_href.split('/')[-2]
-					page = 1
-					while page < 11:
-						temp_url = category_sub_href + 'hot-' + str(page)
-						mealsListDinner = self.mealsList(temp_url,category_identifier)
- 						if mealsListDinner is None:
- 							pass
- 						else:
- 							for meal in mealsListDinner:
- 								recipeStep = self.recipeSteps(meal['recipe_href'])
- 								self.mydb[category_identifier + '_steps'].insert_one(recipeStep)
- 						page = page + 1
+		# 		category_title = categorySubs['category_title']
+		# 		category_url = categorySubs['category_url']
+		# 		category = categorySubs['category_subs']
+		# 		for sub in category:
+		# 			category_sub_href = sub['category_sub_href']
+		# 			category_sub_title = sub['category_sub_title']
+		# 			category_identifier = category_sub_href.split('/')[-2]
+		# 			page = 1
+		# 			while page < 11:
+		# 				temp_url = category_sub_href + 'hot-' + str(page)
+		# 				mealsListDinner = self.mealsList(temp_url,category_identifier)
+ 	# 					if mealsListDinner is None:
+ 	# 						pass
+ 	# 					else:
+ 	# 						for meal in mealsListDinner:
+ 	# 							recipeStep = self.recipeSteps(meal['recipe_href'])
+ 	# 							self.mydb[category_identifier + '_steps'].insert_one(recipeStep)
+ 	# 					page = page + 1
 
-		# caipu = self.recipesCategory('caipu')
-		# shicai = self.recipesCategory('shicai')
-		# jiankang = self.recipesCategory('jiankang')
+		self.recipesCategory('fenlei')
+		self.recipesCategory('caipu')
+		self.recipesCategory('shicai')
+		self.recipesCategory('jiankang')
 
 
 	def meals(self):
