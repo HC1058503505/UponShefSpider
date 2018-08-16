@@ -195,6 +195,7 @@ class XiangHaRecipe(object):
 			categoryDetail = re.findall(pattern, category_detail_content)
 
 			subs = []
+			sub_detail = {}
 			for detail in categoryDetail:
 
 				if recipe_type == 'shicai':
@@ -207,6 +208,7 @@ class XiangHaRecipe(object):
 							'category_sub_title': shicai[1].strip()
 						}
 						shicai_sub.append(sub)
+					shicai_sub.append(shicai_sub)
 				else:
 					sub = {
 						'category_sub_href' : detail[0].strip(),
