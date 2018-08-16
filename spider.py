@@ -195,7 +195,6 @@ class XiangHaRecipe(object):
 			categoryDetail = re.findall(pattern, category_detail_content)
 
 			subs = []
-			sub_detail = {}
 			for detail in categoryDetail:
 
 				if recipe_type == 'shicai':
@@ -208,7 +207,6 @@ class XiangHaRecipe(object):
 							'category_sub_title': shicai[1].strip()
 						}
 						shicai_sub.append(sub)
-					sub_detail[shicai_detail[0][1]] = shicai_sub
 				else:
 					sub = {
 						'category_sub_href' : detail[0].strip(),
@@ -216,7 +214,7 @@ class XiangHaRecipe(object):
 					}
 					subs.append(sub)
 
-			category['category_subs'] = sub_detail if recipe_type == 'shicai' else subs
+			category['category_subs'] = shicai_sub if recipe_type == 'shicai' else subs
 			category_all_subs.append(category)
 
 		category_all['recipe_type'] = recipe_type
