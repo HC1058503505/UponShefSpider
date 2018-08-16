@@ -208,7 +208,7 @@ class XiangHaRecipe(object):
 							'category_sub_title': shicai[1].strip()
 						}
 						shicai_sub.append(sub)
-					shicai_sub.append(shicai_sub)
+					sub_detail.append(shicai_sub)
 				else:
 					sub = {
 						'category_sub_href' : detail[0].strip(),
