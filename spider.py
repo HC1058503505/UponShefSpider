@@ -338,8 +338,8 @@ class XiangHaRecipe(object):
 				print '线程出错'
 
 	def start(self):
-		self.meals()
-		# self.categoryList()
+		# self.meals()
+		self.categoryList()
 		# self.recipesCategory('caipu')
 
 
